@@ -10,9 +10,14 @@ import {
 
 import { db } from '$lib/server/db';
 
+import * as schema from './db/schema';
+
 export const auth = betterAuth({
 	database: drizzleAdapter(db, {
-		provider: 'sqlite' // or "mysql", "sqlite"
+		provider: 'sqlite', // or "mysql", "sqlite",
+		schema: {
+			...schema
+		}
 	}),
 
 	socialProviders: {
