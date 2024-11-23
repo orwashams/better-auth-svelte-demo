@@ -57,12 +57,13 @@ target can be string or a link to a sub-table.<br/>
 - Edit cell.
 - Clear cell.
 
-## Used Library or Will be Used (for now)
+## Used Tech or Will be Used (for now)
 
-- shadcn
-- tanstack tale
-- clerk
+- SvelteKit
+- shadcn-svelte
+- tanstack table
+- better-auth
 - drizzle
 - turso
 - sqlite (libsql)
-- will be using framer motion
+- will be using svelte motion
