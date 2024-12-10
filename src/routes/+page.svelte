@@ -12,7 +12,7 @@
 		await authClient.signOut({
 			fetchOptions: {
 				onSuccess: () => {
-					goto('/auth/login');
+					goto('/auth/sign-in');
 				}
 			}
 		})}
