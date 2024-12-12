@@ -1,9 +1,6 @@
 // src/lib/email.ts
-import { Resend } from 'resend';
-import { RESEND_API_KEY } from '$env/static/private';
 
 // Initialize Resend with your API key
-const resend = new Resend(RESEND_API_KEY);
 
 // Email sending function with TypeScript types
 export async function sendEmail({
@@ -19,29 +16,21 @@ export async function sendEmail({
 	html?: string;
 	text?: string;
 }) {
-	try {
-		const { data, error } = await resend.emails.send({
+	await fetch('https://submit-form.com/KK9o8ufk3', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Accept: 'application/json'
+		},
+		body: JSON.stringify({
 			from,
 			to,
 			subject,
 			html,
-			text,
-			react: { useSuspense: true }
-		});
-
-		if (error) {
-			console.error('Resend Email Error:', error);
-			return { success: false, error };
-		}
-
-		return { success: true, data };
-	} catch (err) {
-		console.error('Email Send Unexpected Error:', err);
-		return {
-			success: false,
-			error: err instanceof Error ? err.message : 'Unknown error'
-		};
-	}
+			text
+		})
+	});
+	alert('Form submitted');
 }
 
 // Example email template function

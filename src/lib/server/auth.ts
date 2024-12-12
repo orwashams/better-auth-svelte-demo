@@ -13,7 +13,7 @@ import {
 import { db } from '$lib/server/db';
 
 import * as schema from './db/schema';
-import { sendEmail } from '$lib/email';
+// import { sendEmail } from '$lib/email';
 
 export const auth = betterAuth({
 	database: drizzleAdapter(db, {
@@ -36,18 +36,17 @@ export const auth = betterAuth({
 		}
 	},
 	emailAndPassword: {
-		enabled: true,
-		requireEmailVerification: true
-	},
-
-	emailVerification: {
-		sendVerificationEmail: async ({ user, url, token }, request) => {
-			await sendEmail({
-				from: 'Your Company <onboarding@yourdomain.com>',
-				to: user.email,
-				subject: 'Verify your email address',
-				text: `Click the link to verify your email: ${url}`
-			});
-		}
+		enabled: true
 	}
+
+	// emailVerification: {
+	// 	sendVerificationEmail: async ({ user, url, token }, request) => {
+	// 		await sendEmail({
+	// 			from: 'Your Company <onboarding@yourdomain.com>',
+	// 			to: user.email,
+	// 			subject: 'Verify your email address',
+	// 			text: `Click the link to verify your email: ${url}`
+	// 		});
+	// 	}
+	// }
 });

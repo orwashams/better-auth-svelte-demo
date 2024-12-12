@@ -29,7 +29,9 @@ export const actions: Actions = {
 			password: form.data.password,
 
 			name: form.data.fullname, // Optional: extract name from email
-			image: undefined // Optional: you can add image logic if needed
+			image: undefined, // Optional: you can add image logic if needed
+
+			callbackURL: '/'
 		});
 
 		console.log(form);

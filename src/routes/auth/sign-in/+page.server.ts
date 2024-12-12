@@ -27,8 +27,12 @@ export const actions: Actions = {
 			// Use the form data for signup instead of hardcoded values
 			const { error } = await authClient.signIn.email({
 				email: form.data.email,
-				password: form.data.password
+				password: form.data.password,
+				callbackURL: '/',
+				rememberMe: true
 			});
+
+			console.log(form);
 
 			if (error) {
 				return fail(400, {
@@ -40,10 +44,13 @@ export const actions: Actions = {
 			// If signin is successful, you might want to redirect or set a success message
 			return {
 				form,
-				message: 'Signin successful'
+				message: 'Signin successful',
+				redirect: '/'
 			};
 		} catch (error) {
 			// Handle any unexpected errors
+			console.log(error);
+
 			return fail(500, {
 				form,
 				message: 'An unexpected error occurred'
