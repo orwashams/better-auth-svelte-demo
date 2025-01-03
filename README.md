@@ -6,7 +6,7 @@ Don't hesitate to drop some feedback and report any issues. <3
 ## Quick Start
 
 ```bash
-npm install
+pnpm install
 ## Create an env file
 cp .env.example .env
 ```
@@ -15,9 +15,9 @@ Edit the .env file with your SQLite credentials, or set the DATABASE_URL to `fil
 
 ```bash
 ## Initialize the database and run an initial migration
-npm run db:push
+pnpm db:push
 ## Run the project locally in dev mode, and launch the browser
-npm run dev -- --open
+pnpm dev
 ```
 
 ## Tech used
